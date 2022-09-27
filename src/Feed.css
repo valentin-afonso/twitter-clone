@@ -3,8 +3,14 @@
     border-right: 1px solid var(--twitter-background);
     min-width: fit-content;
     overflow-y: scroll;
-    padding-left: 20px;
-    padding-right: 20px;
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
 }
 
 .feed__header {
@@ -14,6 +20,11 @@
     justify-content: space-between;
     background-color: white;
     z-index: 100;
-    border: 1px solid var(--twitter-background);
+    border-bottom: 1px solid var(--twitter-background);
     padding: 15px 20px;
+}
+
+.feed__header>h2 {
+    font-size: 20px;
+    font-weight: 800;
 }
