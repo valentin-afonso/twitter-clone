@@ -12,30 +12,30 @@ function Post({
     username,
     verified,
     text,
-    image,
-    avatar
+    avatar,
+    image
 }) {
     return (
         <div className='post'>
             <div className='post__avatar'>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Remy Sharp" src={avatar} />
             </div>
             <div className='post__body'>
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            Afonso Valentin {" "}
+                            {displayName}
                             <span className='post__headerSpecial'>
-                                <VerifiedIcon className='post__badge' />
-                                @valentinafonso
+                                {verified && <VerifiedIcon className='post__badge' />}
+                                {username}
                             </span>
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>I challenge you to build a Twitter clone with Reactjs</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src="https://picsum.photos/500/300" alt="" />
+                <img src={image} alt="" />
                 <div className="post__footer">
                     < ChatBubbleOutlineIcon fontSize='small' />
                     < FavoriteBorderIcon fontSize='small' />
