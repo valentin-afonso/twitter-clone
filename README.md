@@ -1,4 +1,4 @@
-# Welcome to Twitter Clone App
+# Welcome to Twitter Clone App 🔥
 
 This project was made to learn and practice Reactjs
 
