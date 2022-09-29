@@ -9,3 +9,5 @@ This project was made to learn and practice Reactjs
 ###### Go to [Material Ui](https://mui.com/)
 - Firebase (for database : "Cloud firestore")
 ###### Go to [Firebase](https://firebase.google.com/)
+- Netifly (to host the app)
+###### Go to [Netifly](https://www.netlify.com/)
