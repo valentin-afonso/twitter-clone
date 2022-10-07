@@ -12,7 +12,6 @@ function Feed() {
         getPosts().then(items => {
             setPosts(items)
         });
-        console.log(getPosts())
     }, []);
 
     return (
