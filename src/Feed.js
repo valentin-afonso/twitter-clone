@@ -3,22 +3,16 @@ import './Feed.css';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import TweetBox from './TweetBox';
 import Post from './Post';
-import db from './utils/firebase';
-import { collection, getDocs } from 'firebase/firestore/lite';
+import getPosts from './utils/firebase';
 
 function Feed() {
     const [posts, setPosts] = useState([]);
 
-    const fetchPosts = async () => {
-        const response = collection(db, 'posts');
-        const data = await getDocs(response);
-        data.docs.forEach(item => {
-            setPosts([...posts, item.data()])
-        });
-    };
-
     useEffect(() => {
-        fetchPosts();
+        getPosts().then(items => {
+            setPosts(items)
+        });
+        console.log(getPosts())
     }, []);
 
     return (
@@ -32,22 +26,18 @@ function Feed() {
             <TweetBox />
             {/* Post */}
             {
-                posts.map((post, id) => {
-                    return (
-                        <div key={id}>
-                            <Post
-                                displayName={post.displayName}
-                                username={post.username}
-                                verified={post.verified}
-                                text={post.text}
-                                avatar={post.avatar}
-                                image={post.image}
-                            />
-                        </div>
-
-                    );
-
-                })
+                posts.map((post, id) => (
+                    <div key={id}>
+                        <Post
+                            displayName={post.displayName}
+                            username={post.username}
+                            verified={post.verified}
+                            text={post.text}
+                            avatar={post.avatar}
+                            image={post.image}
+                        />
+                    </div>
+                ))
             }
 
         </div>

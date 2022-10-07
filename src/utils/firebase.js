@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore/lite';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -13,14 +14,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-export default db;
 
-/*
 // Get a list of post firebase
-async function getPosts(db) {
+export default async function getPosts() {
     const postsCol = collection(db, 'posts');
     const postSnapshot = await getDocs(postsCol);
     const postList = postSnapshot.docs.map(doc => doc.data());
     return postList;
 }
-*/
+
